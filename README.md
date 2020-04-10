@@ -1,5 +1,5 @@
 
-## Introduction_Osama
+## Introduction
 Planning is an important topic in AI because intelligent agents are expected to automatically plan their own actions in uncertain domains. Planning and scheduling systems are commonly used in automation and logistics operations, robotics and self-driving cars, and for aerospace applications like the Hubble telescope and NASA Mars rovers.
 
 This project is split between implementation and analysis. First you will combine symbolic logic and classical search to implement an agent that performs progression search to solve planning problems. Then you will experiment with different search algorithms and heuristics, and use the results to answer questions about designing planning systems.
@@ -13,18 +13,34 @@ See the [Project Enhancements](#optional-project-enhancements) section at the en
 ![Progression air cargo search](images/Progression.PNG)
 
 
-## Getting Started (Workspaces)
-The easiest way to complete the project is to click "next" below to open a Workspace that has already been configured with the required files and libraries to support the project. (NOTE: Workspaces does not currently support pypy3, so your code will run slower than completing the project locally if you install pypy3.) 
-
-If you use the Workspace, you do NOT need to perform any of the setup steps outlined below. Skip to the next section with instructions for completing the project.
-
-**NOTE:** Workspace sessions will time out if there is no detected user activity for a period of time (about half an hour). You can lose progress if your session terminates due to timeout while an experiment is running. (Using the mouse to interact in the Workspace window periodically should keep the connection alive.)
-
 ## Getting Started (Local Environment)
 If you would prefer to complete the exercise in your own local environment, then follow the steps below:
 
 **NOTE:** You are _strongly_ encouraged to install pypy 3.5 (download [here](http://pypy.org/download.html)) for this project. Pypy is an alternative to the standard cPython runtime that tries to optimize and selectively compile your code for improved speed, and it can run 2-10x faster for this project. There are binaries available for Linux, Windows, and OS X. Simply download and run the appropriate pypy binary installer (make sure you get version 3.5) or use the package manager for your OS. When properly installed, any `python` commands can be run with `pypy` instead. (You may need to specify `pypy3` on some OSes.)
 
+### AI Nanodegree Conda Environment
+Follow these instructions to create and configure your environment for the AI Nanodegree program. An environment file for supported OSes, which will install Python 3 and all the necessary packages used in the AI Nanodegree program is included in the supporting materials below. (The same file should support Windows, Linux, and OSX.)
+
+#### Create the Environment
+* Open a terminal and run conda env create -f aind-universal-v3.yml to create the environment.
+* Activate the environment
+run `source activate aind` (OSX & Linux)
+run `activate aind` (Windows)
+
+**WARNING: SOME OPERATING SYSTEMS MAY PRODUCE ERRORS WHILE INSTALLING Z3 -- DO NOT PANIC. The exercise using Z3 can be run directly in the classroom.**
+
+#### Resolving Installation Errors
+It can be challenging to configure Z3, particularly on some versions of Windows. Windows users are strongly encouraged to complete the CSP exercise in the classroom workspace in order to avoid installing this package. You may use the information below to attempt installing Z3 on Windows, but that platform is not well-supported by the Z3 library maintainers.
+
+NOTE: You may need a C/C++ compiler to build some of the required packages if your system cannot find an installable binary. OSX & Linux users can use gcc & g++/clang (OSX users will need the XCode Command Line Tools available by running xcode-select --install from a Terminal.) Windows users can download & install Visual C++ Build Tools here.
+
+Activate the conda environment (source activate aind or activate aind, depending on your OS), then try installing with pip:
+
+`(aind) ~$ pip install z3-solver`
+#### A Word on Python Versions
+We suggest using Python 3.5 for cross-platform compatibility of support libraries for all projects and exercises, however the Udacity classroom quizzes currently use Python 3.4.3 and Workspaces use python 3.6. The Project Assistant (where much of your code will be scored) uses Python 3.5. The conda environment will install the correct version, but you should still remain mindful, as the base anaconda python installation is Python 3.6. You should be mindful of using language features that are specific to new versions that will raise SyntaxErrors or create other runtime issues (you cannot depend on the order of dictionary keys, for example).
+
+#### Activate the Environment
 - Activate the aind environment (OS X or Unix/Linux users use the command shown; Windows users only run `activate aind`)
 ```
 $ source activate aind

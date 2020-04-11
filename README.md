@@ -18,7 +18,7 @@ If you would prefer to complete the exercise in your own local environment, then
 
 **NOTE:** You are _strongly_ encouraged to install pypy 3.5 (download [here](http://pypy.org/download.html)) for this project. Pypy is an alternative to the standard cPython runtime that tries to optimize and selectively compile your code for improved speed, and it can run 2-10x faster for this project. There are binaries available for Linux, Windows, and OS X. Simply download and run the appropriate pypy binary installer (make sure you get version 3.5) or use the package manager for your OS. When properly installed, any `python` commands can be run with `pypy` instead. (You may need to specify `pypy3` on some OSes.)
 
-**By the way, I didn't install pypy on my mchine and still the project works smoothly. **
+__By the way, I didn't install pypy on my mchine and still the project works smoothly__
 
 ### AI Nanodegree Conda Environment
 Follow these instructions to create and configure your environment for the AI Nanodegree program. An environment file for supported OSes, which will install Python 3 and all the necessary packages used in the AI Nanodegree program is included in the supporting materials below. (The same file should support Windows, Linux, and OSX.)

@@ -90,7 +90,10 @@ Use your results to answer the following questions:
 ## Submission
 Before you can submit your project for review in the classroom, you must run `udacity submit` from the project folder in your terminal. (Typically that will be `.../artificial-intelligence/Projects/2_planning/ $`) The script will automatically create a zip archive of the required files (`my_planning_graph.py` and `report.pdf`) and submit your code to a remote server for testing.
 
-You can only submit a zip archive created by the PA script (even if you're only submitting a partial solution), and you must submit the exact zip file created by the Project Assistant in your classroom for review. The classroom verifies the zip file submitted against records on the Project Assistant system; any changes in the file will cause your submission to be rejected.
+You can only submit a zip archive created by the PA script (even if you're only submitting a partial solution), and you must submit the exact zip file created by the Project Assistant in your classroom for review. The classroom verifies the zip file submitted against records on the Project Assistant system; any changes in the file will cause your submission to be rejected. 
+
+The detailed steps are shown in the following figure
+![steps of project submission](https://github.com/mohandesosama/Building-a-Forward-Planning-Agent/blob/master/images/submission%20steps.png)
 
 ### Additional Search Topics
 

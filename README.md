@@ -24,7 +24,7 @@ __By the way, I didn't install pypy on my mchine and still the project works smo
 Follow these instructions to create and configure your environment for the AI Nanodegree program. An environment file for supported OSes, which will install Python 3 and all the necessary packages used in the AI Nanodegree program is included in the supporting materials below. (The same file should support Windows, Linux, and OSX.)
 
 #### Create the Environment
-* Open a terminal and run conda env create -f aind-universal-v3.yml to create the environment.
+* Open a terminal and run conda `env create -f aind-universal-v3.yml` to create the environment.
 * Activate the environment
 run `source activate aind` (OSX & Linux)
 run `activate aind` (Windows)
@@ -42,11 +42,6 @@ Activate the conda environment (source activate aind or activate aind, depending
 #### A Word on Python Versions
 We suggest using Python 3.5 for cross-platform compatibility of support libraries for all projects and exercises, however the Udacity classroom quizzes currently use Python 3.4.3 and Workspaces use python 3.6. The Project Assistant (where much of your code will be scored) uses Python 3.5. The conda environment will install the correct version, but you should still remain mindful, as the base anaconda python installation is Python 3.6. You should be mindful of using language features that are specific to new versions that will raise SyntaxErrors or create other runtime issues (you cannot depend on the order of dictionary keys, for example).
 
-#### Activate the Environment
-- Activate the aind environment (OS X or Unix/Linux users use the command shown; Windows users only run `activate aind`)
-```
-$ source activate aind
-```
 
 ## Instructions
 

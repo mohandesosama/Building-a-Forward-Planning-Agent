@@ -194,6 +194,26 @@ class PlanningGraph:
                     break
         return level_cost
 
+    def h_setlevel_xx(self):
+        # TODO: implement setlevel heuristic
+        self.fill()
+        for loc, lit in enumerate(self.literal_layers):
+            allGoalsMet = True
+            for g in self.goal:
+                if g not in lit:
+                    allGoalsMet = False
+                    break
+            if not allGoalsMet:
+                continue
+            goalsAreMutex = False
+            for g1, g2 in combinations(self.goal, 2):
+                if lit.is_mutex(g1, g2):
+                    goalsAreMutex = True
+                    break
+            if not goalsAreMutex:
+                return loc
+        return -1
+        
     def h_setlevel(self):
         """ Calculate the set level heuristic for the planning graph
 

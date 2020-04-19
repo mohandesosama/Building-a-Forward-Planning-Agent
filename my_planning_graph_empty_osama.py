@@ -195,7 +195,7 @@ class PlanningGraph:
                     level_cost = max(cost,level_cost)
                     break
         return level_cost
-
+  
     def h_setlevel(self):
         """ Calculate the set level heuristic for the planning graph
 

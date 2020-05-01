@@ -66,6 +66,8 @@ class ActionLayer(BaseActionLayer):
 
 class LiteralLayer(BaseLiteralLayer):
 
+    
+    
     def _inconsistent_support(self, literalA, literalB):
         """ Return True if all ways to achieve both literals are pairwise mutex in the parent layer
 
@@ -190,31 +192,16 @@ class PlanningGraph:
         for goal in self.goal:
             for cost, layer in enumerate(self.literal_layers):
                 if goal in layer:
-                    level_cost = max(cost, level_cost)
+                    if cost > level_cost:
+                        level_cost = cost
+                        break
+                    #print('cost ',cost)
+                    #print('level cost ', level_cost)
                     break
         return level_cost
 
-    def h_setlevel_xx(self):
-        # TODO: implement setlevel heuristic
-        self.fill()
-        for loc, lit in enumerate(self.literal_layers):
-            allGoalsMet = True
-            for g in self.goal:
-                if g not in lit:
-                    allGoalsMet = False
-                    break
-            if not allGoalsMet:
-                continue
-            goalsAreMutex = False
-            for g1, g2 in combinations(self.goal, 2):
-                if lit.is_mutex(g1, g2):
-                    goalsAreMutex = True
-                    break
-            if not goalsAreMutex:
-                return loc
-        return -1
-        
-    def h_setlevel(self):
+    
+    def h_setlevel_bmw(self):
         """ Calculate the set level heuristic for the planning graph
 
         The set level of a planning graph is the first level where all goals
@@ -257,8 +244,60 @@ class PlanningGraph:
             level += 1
             
         return -1
+    def h_setlevel_xxx(self):
+        # TODO: implement setlevel heuristic
+        self.fill()
+        for loc, lit in enumerate(self.literal_layers):
+            allGoalsMet = True
+            for g in self.goal:
+                if g not in lit:
+                    allGoalsMet = False
+                    break
+            if not allGoalsMet:
+                continue
+            goalsAreMutex = False
+            for g1, g2 in combinations(self.goal, 2):
+                if lit.is_mutex(g1, g2):
+                    goalsAreMutex = True
+                    break
+            if not goalsAreMutex:
+                return loc
+        return -1
+        
+    def h_setlevel(self):
+        self.fill()
+        for loc, layer in enumerate(self.literal_layers):
+            allGoalsInLayer = True
+            for goal in self.goal:
+                if goal not in layer:
+                    allGoalsInLayer = False
+                    break
+            # print("All goals are in layer-{0}: {1}".format(loc, allGoalsInLayer))
+            if not allGoalsInLayer: continue
+            
+            twoGoalsAreMutex = False
+            for goalA, goalB in combinations(self.goal, 2):
+                # print("IsMutex {0}-{1}: {2}".format(goalA, goalB, layer.is_mutex(goalA, goalB)))
+                if layer.is_mutex(goalA, goalB):
+                    twoGoalsAreMutex = True
+                    break 
+            # print("Goals are mutexes: {0} on layer-{1}".format(twoGoalsAreMutex, loc))
+            if not twoGoalsAreMutex:
+                return loc
+        return -1
 
-    ##############################################################################
+    def h_setlevel_xx(self):
+        level = -1
+        while not self._is_leveled:
+            last_layer = self.literal_layers[-1]
+            if  (goal in last_layer for goal in self.goal) and \
+                (not last_layer.is_mutex(goal1, goal2) for goal1, goal2 in combinations(self.goal, 2)):
+                level += 1
+            self._extend()
+
+        return level
+
+     ##############################################################################
     #                     DO NOT MODIFY CODE BELOW THIS LINE                     #
     ##############################################################################
 
